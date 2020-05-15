@@ -1,20 +1,47 @@
 <!-- Describe task in general -->
 
 <p>
-    Sum two passed ints
+    Jessica is going to see her family overseas today, so she goes
+	to the local gift shop to buy some souvenirs. Tehere are <strong>N</strong> souvenirs
+	on the shelf, numbered 1, 2, ..., <strong>N</strong> from left to right. Souvenirs come 
+	in different types, which are denoted by positive integers. Jessica is 
+	in a hurry, so she can take only a consecutive interval of souvenirs. 
+	Formally, Jessica selects two indices, <i>l</i> and <i>r</i>, and takes 
+	all of the souvenirs numbered <i>l, l+1, ..., r-1, r</i>. Also, due to 
+	tax rules, airport security will throw away all souvenirs of a type if 
+	Jessica has more than S of that type in the chosen interval.
 </p>
-
-<p style="text-align: center;">
-    <img  title="example" src="{{MEDIA}}example.png" alt="example" style="max-height: 83px"/>
+<p>
+	For example, suppose <strong>S</strong> = 2, and Jessica brings six souvenirs: one of type 0, 
+	two of type 1, and three of type 2. She will be allowed to keep the souvenir of type 0 and both 
+	souvenirs of type 1, but she will lose all of the souvenirs of type 2!
+</p>
+<p>
+	Jessica needs to choose <i>l</i> and <i>r</i> such that she can take the maximum 
+	number of souvenirs for her family. What is the maximum number of souvenirs she can bring?
 </p>
 
 <!-- Explain input and output values -->
 <p>
-    <strong>Input: </strong> Two arguments. Both are ints.
+    <strong>Input: </strong> 
+	<p>
+		Two arguments
+		<ul>
+			<li>
+				list of positive integers, represents types of souvenirs on the shelf from left to right;
+			</li>
+			<li>
+				positive integer, maximum amount of souvenirs of a single type in the chosen interval.
+			</li>
+		</ul>
+	</p>
 </p>
 
 <p>
-    <strong>Output: </strong> Int. 
+    <strong>Output: </strong>
+	<p>
+		An integer, maximum number of souvenirs Jessica can bring to her family. 
+	</p>
 </p>
 
 
@@ -23,30 +50,35 @@
     <p>
         <strong>Example:</strong>
     </p>
-
-{% if interpreter.slug == "js-node" %}
-<pre class="brush: javascript">sumTwo(2, 3) == 5
-sumTwo(5, 7) == 12
+<pre class="brush: python">
+home_coming([1, 1, 4, 1, 4, 4], 2) == 4
+home_coming([1, 2, 5, 3, 4, 5, 6, 7], 1) == 6
+home_coming([1, 2, 8, 8, 8, 8, 8, 3, 4, 1], 1) == 4
 </pre>
-{% else %}
-<pre class="brush: python">sum_two(2, 3) == 5
-sum_two(5, 7) == 12
-</pre>
-{% endif %}
-</div>
-
-
-<!-- Here you can explain how it can be used in development -->
-<!-- The section is optional -->
-<p class="for_info_only">
-
-    <strong>How it’s used: </strong>
-    <i>(math is used everywhere)</i>
+<p>
+	In case #1, Jessica should choose <i>l</i> = 2 and <i>r</i> = 5. This allows her 
+	to take 4 souvenirs to the airport of types 1, 4, 1 and 4. None of them are thrown 
+	away by airport security, so she is able to bring 4 souvenirs to her family.
 </p>
+<p>
+	In case #2, Jessica should choose <i>l</i> = 1 and <i>r</i> = 8. This allows her 
+	to take all 8 souvenirs to the airport. Her souvenirs of type 5 are thrown away 
+	since she has more than <strong>S</strong> = 1 of them, so she is able to bring 
+	a total of 6 souvenirs to her family.
+</p>
+<p>
+	In case #3, Jessica should choose <i>l</i> = 1 and <i>r</i> = 9. This allows her 
+	to take 9 souvenirs to the airport of types 1, 2, 8, 8, 8, 8, 8, 3 and 4. 
+	Her souvenirs of type 8 are thrown away since she has more than <strong>S</strong> = 1 
+	of them, so she is able to bring a total of 4 souvenirs to her family.
+</p>
+
+</div>
 
 <!-- Here you can explain some constraints for input-->
 <!-- The section is optional -->
 <p>
-    <strong>Precondition:</strong>
-    <i>both given ints should be between -1000 and 1000</i>
+    <strong>Precondition:</strong></br>
+    2 &le; <strong>N</strong> &le; 1000 </br>
+	1 &le; <strong>S</strong> &le; N </br>
 </p>
